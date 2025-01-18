@@ -305,5 +305,42 @@ def panel():
             5. Advance Search
             6. Back""")
 
+            choice = input("Enter your choice: ")
+
+            if choice == '1':
+                name = input("Enter name: ")
+                time = input("Enter time: ")
+                teacher_id = input("Enter teacher ID: ")
+                course = Course(name, time, teacher_id)
+                course.add()
+
+            elif choice == '2':
+                name = input("Enter name: ")
+                course = Course(name, '', '', '', '', '')
+                course.delete()
+
+            elif choice == '3':
+                name = input("Enter name: ")
+                time = input("Enter time: ")
+                teacher_id = input("Enter teacher ID: ")
+                course = Course(name, time, teacher_id)
+                course.update()
+
+            elif choice == '4':
+                course = Course('', '', '', '', '', '')
+                course.show()
+
+            elif choice == '5':
+                query = input("Enter your query: ")
+                teacher = Course('', '', '', '', '', '')
+                teacher.advance_search_with_query(query)
+                
+            elif choice == '6':
+                panel()
+            else:
+                print("Invalid choice")
+                logger.warning(f"Choice '{choice}' is invaild.")
+        
+
 
 panel()
